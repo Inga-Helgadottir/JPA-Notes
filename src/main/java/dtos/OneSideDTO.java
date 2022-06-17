@@ -66,7 +66,7 @@ public class OneSideDTO {
 
     @Override
     public String toString() {
-        return "OneSideDTO{" +
+        return "OneSide{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", otherOneSide=" + otherOneSide +

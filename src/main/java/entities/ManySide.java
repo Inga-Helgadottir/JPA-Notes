@@ -28,6 +28,12 @@ public class ManySide {
     public ManySide() {
     }
 
+    //Just for the test class
+    public ManySide(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public ManySide(String name) {
         this.name = name;
     }

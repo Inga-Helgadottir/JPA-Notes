@@ -56,7 +56,7 @@ public class OtherManySideDTO {
 
     @Override
     public String toString() {
-        return "OtherManySideDTO{" +
+        return "OtherManySide{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

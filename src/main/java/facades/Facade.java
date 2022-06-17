@@ -77,7 +77,6 @@ public class Facade {
         EntityManager em = emf.createEntityManager();
         try{
             ManySide ms = em.find(ManySide.class, id);
-            System.out.println(ms);
             em.getTransaction().begin();
             em.remove(ms);
             em.getTransaction().commit();
@@ -85,6 +84,15 @@ public class Facade {
         }finally {
             em.close();
         }
+    }
 
+    public ManySideDTO getById(int id){
+        EntityManager em = emf.createEntityManager();
+        try{
+            ManySide c = em.find(ManySide.class, id);
+            return new ManySideDTO(c);
+        }finally {
+            em.close();
+        }
     }
 }

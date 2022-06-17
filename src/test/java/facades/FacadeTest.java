@@ -61,11 +61,8 @@ class FacadeTest {
             Role adminRole = new Role("admin");
 
             ManySide ms = new ManySide("first many side");
-            ms.setId(1);
             ManySide ms2 = new ManySide("second many side");
-            ms2.setId(2);
             ManySide ms3 = new ManySide("third many side");
-            ms3.setId(3);
             OtherManySide oms = new OtherManySide("first other many side");
             OtherManySide oms2 = new OtherManySide("second other many side");
             OtherManySide oms3 = new OtherManySide("third other many side");
@@ -154,6 +151,14 @@ class FacadeTest {
         facade.delete(2);
         int actual = facade.read().size();
         int expected = manySideSize - 1;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getById() {
+        ManySideDTO msdto = facade.getById(3);
+        String actual = msdto.getName();
+        String expected = "third many side";
         assertEquals(expected, actual);
     }
 }

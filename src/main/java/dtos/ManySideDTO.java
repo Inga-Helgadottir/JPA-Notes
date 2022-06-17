@@ -8,7 +8,7 @@ import java.util.Objects;
 public class ManySideDTO {
     private int id;
     private String name;
-    private OneSide oneSide;
+    private OneSideDTO oneSide;
     private List<OtherManySideDTO> otherManySides = new ArrayList<>();
 
     public ManySideDTO(String name) {
@@ -45,11 +45,11 @@ public class ManySideDTO {
         this.name = name;
     }
 
-    public OneSide getOneSide() {
+    public OneSideDTO getOneSide() {
         return oneSide;
     }
 
-    public void setOneSide(OneSide oneSide) {
+    public void setOneSide(OneSideDTO oneSide) {
         this.oneSide = oneSide;
     }
 
@@ -80,7 +80,7 @@ public class ManySideDTO {
 
     @Override
     public String toString() {
-        return "ManySideDTO{" +
+        return "ManySide{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", oneSide=" + oneSide +
