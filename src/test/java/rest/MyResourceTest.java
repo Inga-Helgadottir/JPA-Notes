@@ -36,7 +36,6 @@ class MyResourceTest {
     private static HttpServer httpServer;
     private static EntityManagerFactory emf;
     private static String securityToken;
-    private static int manySideSize;
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
 
@@ -68,9 +67,7 @@ class MyResourceTest {
 
     @BeforeEach
     public void setUp() {
-
         System.out.println("set up");
-        manySideSize = 3;
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
