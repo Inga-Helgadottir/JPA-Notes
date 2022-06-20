@@ -3,6 +3,7 @@ package facades;
 import dtos.ManySideDTO;
 import entities.ManySide;
 import entities.OneSide;
+import entities.OtherOneSide;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,8 +37,10 @@ public class Facade {
             ManySide ms = new ManySide(newManySide.getName());
             ms.setOtherManySides(newManySide.getOtherManySides());
             OneSide os = new OneSide(newManySide.getOneSide().getName());
+            OtherOneSide oos = new OtherOneSide(newManySide.getOneSide().getOtherOneSide().getName());
 
             ms.setOneSide(os);
+            os.setOtherOneSide(oos);
             em.persist(ms);
 
             em.getTransaction().commit();

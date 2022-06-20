@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import dtos.ManySideDTO;
 import dtos.OneSideDTO;
 import dtos.OtherManySideDTO;
+import dtos.OtherOneSideDTO;
 import entities.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -155,8 +156,10 @@ class MyResourceTest {
         OtherManySideDTO oms = new OtherManySideDTO("first other many side");
         OtherManySideDTO oms2 = new OtherManySideDTO("second other many side");
         OneSideDTO os = new OneSideDTO("one side");
+        OtherOneSideDTO oos = new OtherOneSideDTO("other one side");
 
         ms.setOneSide(os);
+        os.setOtherOneSide(oos);
         ms.addToOtherManySides(oms);
         ms.addToOtherManySides(oms2);
         String requestBody = GSON.toJson(ms);
