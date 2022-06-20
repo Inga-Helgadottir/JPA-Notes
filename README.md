@@ -113,7 +113,11 @@ When you store passwords in the database they get hashed so that if someone hack
 
 ### Where is stuff in this project
 
-(src/main/java/facades/Facade.java) ( the facade for ManySide CRUD )
+src/main/java/entities ( the entities I made )
+
+src/main/java/dtos ( the DTOs I made )
+
+src/main/java/facades/Facade.java ( the facade for ManySide CRUD )
 
 src/test/java/facades/FacadeTest.java ( tests for all facade functions )
 
