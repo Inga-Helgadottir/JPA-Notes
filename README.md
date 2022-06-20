@@ -1,8 +1,111 @@
+*This project requires that you have a functional droplet up and running with tomcat and SQL
 
+# How to use the startcode
+
+## To deploy with a push to github
+
+### Change the following line in the mavenworkflow.yml file
+
+in line 5
+
+- master
+
+to
+
+- main
+
+
+and then line 41
+
+mysql database: 'startcode_test'
+
+to
+
+mysql database: 'your test database'
+
+
+### Change the following lines in the pom.xml file
+
+in line 6
+
+```html
+    <artifactId>devops-starter</artifactId>
+```
+to
+
+```html
+    <artifactId>name of project</artifactId>
+```
+in line 19
+
+
+<remote.server>Your domain name here</remote.server>
+
+
+in line 23
+
+<db.name>Your database name here</db.name>
+
+#### change secrets
+
+go to your github project settings, secrets, actions and make 2 secrets
+
+REMOTE_USER
+
+and set it to the username of your tomcat
+
+REMOTE_PW
+
+and set it to the password for your tomcat
+
+### Making a database
+
+you can make an empty database, then change the database and password in the persistance file
+
+and then you can run the main method in the Populator (src/main/java/facades/Populator.java)
+
+this can generate dummy data in the database, all you need to do is change the userName and pass
+
+remember not to put that on github if it is sensitive
+
+you can do the same with the test database (src/main/java/utils/SetupTestUsers.java)
+
+When you store passwords in the database they get hashed so that if someone hacks the database they cant see your real password
+
+### The available REST endpoints
+
+#### api/login
+
+for at logge ind
+
+#### api/info/pokemon
+
+for at se en liste af 10 pokemons
+
+#### api/info/swapi
+
+for at se alle informationer om Luke Skywalker
+
+#### api/info/all
+
+get the number of users
+
+#### api/info/user
+
+gets a users name with a message, you need to be a user to see this
+
+#### api/info/admin
+
+gets an admins name with a message, you need to be an admin to see this
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
 *This project is meant as start code for projects and exercises given in Flow-1+2 (+3 using the security-branch) at http://cphbusiness.dk in the Study Program "AP degree in Computer Science"*
 
 *Projects which are expected to use this start-code are projects that require all, or most of the following technologies:*
- - *JPA and REST*
+- *JPA and REST*
 - *Testing, including database test*
 - *Testing, including tests of REST-API's*
 - *CI and CONTINUOUS DELIVERY*
@@ -10,12 +113,12 @@
 ## Flow 2 week 1
 
 ### Preconditions
-*In order to use this code, you should have a local developer setup + a "matching" droplet on Digital Ocean as described in the 3. semester guidelines* 
+*In order to use this code, you should have a local developer setup + a "matching" droplet on Digital Ocean as described in the 3. semester guidelines*
 
 ### Getting Started
 
 This document explains how to use this code (build, test and deploy), locally with maven, and remotely with maven controlled by Github actions
- - [How to use](https://docs.google.com/document/d/1rymrRWF3VVR7ujo3k3sSGD_27q73meGeiMYtmUtYt6c/edit?usp=sharing)
+- [How to use](https://docs.google.com/document/d/1rymrRWF3VVR7ujo3k3sSGD_27q73meGeiMYtmUtYt6c/edit?usp=sharing)
 
 ### JPA snippets
 
@@ -46,8 +149,8 @@ This document explains how to use this code (build, test and deploy), locally wi
 ### create entities from database in Intellij (Persistence mappings)
 - From inside the Persistence window:
 - Right-click a persistence unit, point to Generate Persistence Mapping and select By Database Schema.
-- Select the 
-  - data source 
+- Select the
+  - data source
   - package
   - tick tables to include
   - open tables to see columns and add the ones with mapped type: Collection<SomeEntity> and SomeEntity
