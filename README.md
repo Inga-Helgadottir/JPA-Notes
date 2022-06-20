@@ -56,6 +56,8 @@ in line 23
     <db.name>Your database name here</db.name>
 ```
 
+***
+
 #### change secrets
 
 go to your github project settings, secrets, actions and make 2 secrets
@@ -67,6 +69,8 @@ and set it to the username of your tomcat
 REMOTE_PW
 
 and set it to the password for your tomcat
+
+***
 
 ### Making a database
 
@@ -82,33 +86,46 @@ you can do the same with the test database (src/main/java/utils/SetupTestUsers.j
 
 When you store passwords in the database they get hashed so that if someone hacks the database they cant see your real password
 
-### The available REST endpoints
+***
+
+### REST endpoints in the startcode
 
 #### api/login
 
-for at logge ind
+- to log in
 
-#### api/info/pokemon
+#### api/info/all 
 
-for at se en liste af 10 pokemons
-
-#### api/info/swapi
-
-for at se alle informationer om Luke Skywalker
-
-#### api/info/all
-
-get the number of users
+- gets the number of users
 
 #### api/info/user
 
-gets a users name with a message, you need to be a user to see this
+- only a user role allowed 
+
+- gives a message {msg: "Hello to User: " + currentUser + "}
 
 #### api/info/admin
 
-gets an admins name with a message, you need to be an admin to see this
+- only an admin role allowed
 
+- gives a message {msg: "Hello to (admin) User: " + currentUser + "}
+***
 
+### Where is stuff in this project
+
+src/main/java/facades/Facade.java ( the facade for ManySide CRUD )
+
+src/test/java/facades/FacadeTest.java ( tests for all facade functions )
+
+src/main/java/security/LoginEndpoint.java ( the login function and endpoint )
+
+src/main/java/security/SignUpEndpoint.java ( the signup function and endpoint )
+
+src/main/java/rest/DemoResource.java ( the startcode functions )
+
+src/main/java/rest/MyResource.java ( a resource I made, with all the CRUD endpoints )
+
+src/main/java/rest/ApplicationConfig.java ( where you add resources, i added min on line 29 )
 
 
 ------------------------------------------------------------------------------------------------------------------------
