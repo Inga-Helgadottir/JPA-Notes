@@ -101,9 +101,10 @@ class MyResourceTest {
             OtherManySide oms2 = new OtherManySide("second other many side");
             OtherManySide oms3 = new OtherManySide("third other many side");
             OneSide os = new OneSide("one side");
+            OneSide os2 = new OneSide("another one side");
             OtherOneSide oos = new OtherOneSide("other one side");
 
-            ms.setOneSide(os);
+            ms.setOneSide(os2);
             ms2.setOneSide(os);
             ms3.setOneSide(os);
             ms.addToOtherManySides(oms);
@@ -159,6 +160,7 @@ class MyResourceTest {
         ms.addToOtherManySides(oms);
         ms.addToOtherManySides(oms2);
         String requestBody = GSON.toJson(ms);
+        System.out.println(requestBody);
 
         given()
             .header("Content-type", ContentType.JSON)
@@ -180,6 +182,18 @@ class MyResourceTest {
                 .assertThat()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
                 .body("size()", equalTo(3));
+    }
+
+
+    @Test
+    void readWhere() {
+        given()
+                .contentType("application/json")
+                .get("myPath/readWhere/another one side")
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("size()", equalTo(1));
     }
 
     @Test
@@ -238,5 +252,16 @@ class MyResourceTest {
             .assertThat()
             .statusCode(HttpStatus.OK_200.getStatusCode())
             .body("admin", equalTo("yes"));
+    }
+
+    @Test
+    void signUpTest() {
+        String json = String.format("{username: \"testing\", password: \"testingPass\"}");
+        securityToken = given()
+                .contentType("application/json")
+                .body(json)
+                .when().post("/signup")
+                .then()
+                .extract().path("token");
     }
 }

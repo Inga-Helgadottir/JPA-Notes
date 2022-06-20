@@ -44,6 +44,13 @@ public class MyResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("readWhere/{nameOfOneSide}")
+    public Response readWhere (@PathParam("nameOfOneSide") String nameOfOneSide) {
+        return Response.ok().entity(GSON.toJson(facade.readWhere(nameOfOneSide))).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("read/{id}")
     public Response getById (@PathParam("id") int id) {
         return Response.ok().entity(GSON.toJson(facade.getById(id))).build();

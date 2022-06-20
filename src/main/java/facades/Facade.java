@@ -59,6 +59,19 @@ public class Facade {
         }
     }
 
+    public List<ManySideDTO> readWhere(String nameOfOneSide){
+        EntityManager em = emf.createEntityManager();
+        try{
+            TypedQuery<ManySide> query = em.createQuery("SELECT m FROM ManySide m WHERE m.oneSide.name = :oneSideName", ManySide.class);
+            query.setParameter("oneSideName", nameOfOneSide);
+            List<ManySide> manySides = query.getResultList();
+            List<ManySideDTO> msdtos = ManySideDTO.getDtos(manySides);
+            return msdtos;
+        }finally {
+            em.close();
+        }
+    }
+
     public ManySideDTO update(ManySide newManySide){
         EntityManager em = emf.createEntityManager();
         try{

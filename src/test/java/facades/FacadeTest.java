@@ -67,9 +67,10 @@ class FacadeTest {
             OtherManySide oms2 = new OtherManySide("second other many side");
             OtherManySide oms3 = new OtherManySide("third other many side");
             OneSide os = new OneSide("one side");
+            OneSide os2 = new OneSide("another one side");
             OtherOneSide oos = new OtherOneSide("other one side");
 
-            ms.setOneSide(os);
+            ms.setOneSide(os2);
             ms2.setOneSide(os);
             ms3.setOneSide(os);
             ms.addToOtherManySides(oms);
@@ -116,11 +117,22 @@ class FacadeTest {
     }
 
     @Test
+    void readWhere() {
+        List<ManySideDTO> msdto = facade.readWhere("another one side");
+        for (ManySideDTO msd: msdto) {
+            System.out.println(msd);
+        }
+        int actual = msdto.size();
+        int expected = 1;
+        assertEquals(actual, expected);
+
+    }
+
+    @Test
     void read() {
         List<ManySideDTO> msdto = facade.read();
         for (ManySideDTO msd: msdto) {
             System.out.println(msd);
-
         }
         int actual = msdto.size();
         int expected = manySideSize;
