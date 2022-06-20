@@ -8,21 +8,27 @@
 
 in line 5
 
-- master
+```yml
+  - master
+```
 
 to
 
-- main
-
+```yml
+  - main
+```
 
 and then line 41
 
-mysql database: 'startcode_test'
+```yml
+  mysql database: 'startcode_test'
+```
 
 to
 
-mysql database: 'your test database'
-
+```yml
+  mysql database: 'your test database'
+```
 
 ### Change the following lines in the pom.xml file
 
@@ -31,20 +37,24 @@ in line 6
 ```html
     <artifactId>devops-starter</artifactId>
 ```
+
 to
 
 ```html
     <artifactId>name of project</artifactId>
 ```
+
 in line 19
 
-
-<remote.server>Your domain name here</remote.server>
-
+```html
+    <remote.server>Your domain name here</remote.server>
+```
 
 in line 23
 
-<db.name>Your database name here</db.name>
+```html
+    <db.name>Your database name here</db.name>
+```
 
 #### change secrets
 
