@@ -113,7 +113,7 @@ When you store passwords in the database they get hashed so that if someone hack
 
 ### Where is stuff in this project
 
-src/main/java/entities ( the entities I made )
+src/main/java/entities ( the entities I made + the ones from start code (User, Role) )
 
 src/main/java/dtos ( the DTOs I made )
 
@@ -121,15 +121,16 @@ src/main/java/facades/Facade.java ( the facade for ManySide CRUD )
 
 src/test/java/facades/FacadeTest.java ( tests for all facade functions )
 
-src/main/java/security/LoginEndpoint.java ( the login function and endpoint )
+src/main/java/security/LoginEndpoint.java 
+( the login function and endpoint, I have added a little to it, so I can see what roles the users have when they log in, ther is a way to get that from the token, but I don´t know how to do that )
 
 src/main/java/security/SignUpEndpoint.java ( the signup function and endpoint )
 
-src/main/java/rest/DemoResource.java ( the startcode functions )
+src/main/java/rest/DemoResource.java ( the start code functions )
 
 src/main/java/rest/MyResource.java ( a resource I made, with all the CRUD endpoints )
 
-src/main/java/rest/ApplicationConfig.java ( where you add resources, i added min on line 29 )
+src/main/java/rest/ApplicationConfig.java ( where you add resources, I added min on line 29 )
 
 
 ------------------------------------------------------------------------------------------------------------------------
