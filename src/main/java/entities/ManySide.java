@@ -1,5 +1,4 @@
 package entities;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ public class ManySide {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotNull
     @Column(name = "name")
     private String name;

@@ -1,11 +1,9 @@
 package rest;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.ManySide;
 import facades.Facade;
 import utils.EMF_Creator;
-
 import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;

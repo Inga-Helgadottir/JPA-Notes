@@ -1,22 +1,23 @@
 package entities;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
 @Entity
 @NamedQuery(name = "OtherOneSide.deleteAllRows", query = "DELETE from OtherOneSide oos")
 @Table(name = "OtherOneSide")
 public class OtherOneSide {
-        @Id
-        @NotNull
-        @Column(name = "id")
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
-        @NotNull
-        @Column(name = "name")
-        private String name;
+    @Id
+    @NotNull
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-        @OneToOne(mappedBy = "otherOneSide", cascade = CascadeType.PERSIST)
-        private OneSide oneSide;
+    @NotNull
+    @Column(name = "name")
+    private String name;
+
+    @OneToOne(mappedBy = "otherOneSide", cascade = CascadeType.PERSIST)
+    private OneSide oneSide;
 
     public OtherOneSide() {
     }
